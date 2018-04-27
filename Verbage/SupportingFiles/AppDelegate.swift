@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Setup firebase
+        FirebaseApp.configure()
+        
+        let loginvc = LoginViewController()
+        let loginnavcon = UINavigationController(rootViewController: loginvc)
+        loginvc.tabBarItem = UITabBarItem(title: "login", image: #imageLiteral(resourceName: "feed"), tag: 0)
+        
+//        //Feed View Controller
+//        let feedViewController = FeedViewController()
+//        let feedViewNavCon = UINavigationController(rootViewController: feedViewController)
+//        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "feed"), tag: 0)
+//
+//        //New Post View Controller
+//        let newPostViewController = NewPostViewController()
+//        let newPostNavCon = UINavigationController(rootViewController: newPostViewController)
+//        newPostViewController.tabBarItem = UITabBarItem(title: "New Post", image: #imageLiteral(resourceName: "add"), tag: 1)
+//
+//        //Profile View Controller
+//        let profileViewController = ProfileViewController()
+//        let profileViewNavCon = UINavigationController(rootViewController: profileViewController)
+//        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "profile"), tag: 2)
+        
+        //Tab Bar Controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [loginnavcon]
+
+//        tabBarController.viewControllers = [feedViewNavCon, newPostNavCon, profileViewNavCon]
+        
+        //Window setup
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         return true
     }
 
