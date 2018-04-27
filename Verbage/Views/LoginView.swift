@@ -15,8 +15,6 @@ class LoginView: UIView {
         let sv = UIScrollView()
         sv.backgroundColor = .clear
         sv.delaysContentTouches = false
-        //sv.isUserInteractionEnabled = false
-        //sv.canCancelContentTouches = false
         return sv
     }()
     
@@ -26,7 +24,7 @@ class LoginView: UIView {
         view.isUserInteractionEnabled = true
         return view
     }()
-
+    
     lazy var iconLabel: UILabel = {
         let label = UILabel()
         label.text = "Verbage"
@@ -114,7 +112,7 @@ class LoginView: UIView {
         button.layer.borderWidth = 1
         return button
     }()
-        
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -149,7 +147,6 @@ class LoginView: UIView {
             scrollView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            //scrollView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
             ])
     }
     
@@ -199,7 +196,7 @@ class LoginView: UIView {
     
     private func setupForgotPasswordButton() {
         containerView.addSubview(forgotPasswordButton)
-            forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
             forgotPasswordButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),

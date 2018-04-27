@@ -18,10 +18,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(loginView)
+        setupPastel()
         loginView.emailTextField.delegate = self
         loginView.passwordTextField.delegate = self
-        setupPastel()
         addObservers()
+        loginView.forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
+        loginView.loginButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        loginView.signUpButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
     }
     
     private func setupPastel() {
@@ -39,6 +42,18 @@ class LoginViewController: UIViewController {
         
         pastelView.startAnimation()
         view.insertSubview(pastelView, at: 0)
+    }
+    
+    @objc func forgotPassword() {
+        
+    }
+    
+    @objc func signIn() {
+        
+    }
+    
+    @objc func createAccount() {
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

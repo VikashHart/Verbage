@@ -10,6 +10,7 @@
 		477370A1AF834612F28FB88E /* Pods_Verbage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE8AB47336CD59F5B7A127A /* Pods_Verbage.framework */; };
 		815928C8208D4C5900689B86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815928C7208D4C5900689B86 /* LoginViewController.swift */; };
 		815928CA208D5D7D00689B86 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815928C9208D5D7D00689B86 /* UIColor+Hex.swift */; };
+		817B601F2093CD36003CAF5F /* FireBaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B601E2093CD36003CAF5F /* FireBaseAuthService.swift */; };
 		81FC472E2088F9FC00A98EE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC472D2088F9FC00A98EE4 /* AppDelegate.swift */; };
 		81FC47332088F9FC00A98EE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC47312088F9FC00A98EE4 /* Main.storyboard */; };
 		81FC47352088F9FC00A98EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FC47342088F9FC00A98EE4 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		4DE8AB47336CD59F5B7A127A /* Pods_Verbage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Verbage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		815928C7208D4C5900689B86 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815928C9208D5D7D00689B86 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		817B601E2093CD36003CAF5F /* FireBaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthService.swift; sourceTree = "<group>"; };
 		81FC472A2088F9FC00A98EE4 /* Verbage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FC472D2088F9FC00A98EE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81FC47322088F9FC00A98EE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		81FC47452088FAF900A98EE4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				817B601E2093CD36003CAF5F /* FireBaseAuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				815928C8208D4C5900689B86 /* LoginViewController.swift in Sources */,
 				815928CA208D5D7D00689B86 /* UIColor+Hex.swift in Sources */,
 				81FC474720893D0900A98EE4 /* LoginView.swift in Sources */,
+				817B601F2093CD36003CAF5F /* FireBaseAuthService.swift in Sources */,
 				81FC472E2088F9FC00A98EE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
