@@ -14,6 +14,7 @@ class LoginView: UIView {
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.backgroundColor = .clear
+        sv.delaysContentTouches = false
         //sv.isUserInteractionEnabled = false
         //sv.canCancelContentTouches = false
         return sv
@@ -145,21 +146,22 @@ class LoginView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 1),
+            scrollView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            //scrollView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
             ])
     }
     
     private func setupContainerView() {
         scrollView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
-           containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             containerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
             ])
     }
     
@@ -167,7 +169,7 @@ class LoginView: UIView {
         containerView.addSubview(iconLabel)
         iconLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            iconLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            iconLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             iconLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             iconLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             iconLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
@@ -189,7 +191,7 @@ class LoginView: UIView {
         containerView.addSubview(passwordTextField)
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 50),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 45),
             passwordTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
             passwordTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
             ])
@@ -209,7 +211,7 @@ class LoginView: UIView {
         containerView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 35),
+            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 25),
             loginButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
             loginButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
             ])
@@ -219,10 +221,10 @@ class LoginView: UIView {
         containerView.addSubview(signUpButton)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 12),
+            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
             signUpButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
             signUpButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            signUpButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+            signUpButton.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -10)
             ])
     }
     

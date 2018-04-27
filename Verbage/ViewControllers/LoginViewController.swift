@@ -59,8 +59,6 @@ class LoginViewController: UIViewController {
             let scrollView = self.loginView.scrollView
             scrollView.contentInset.bottom = keyboardSize.size.height
             scrollView.scrollIndicatorInsets.bottom = keyboardSize.size.height
-//            scrollView.scrollRectToVisible(loginView.forgotPasswordButton.frame, animated: true)
-            scrollView.scrollRectToVisible(loginView.signUpButton.frame, animated: true)
             let newOffset = CGPoint(x: scrollView.frame.minX,
                                     y: CGFloat(keyboardSize.size.height))
             scrollView.setContentOffset(newOffset, animated: true)
