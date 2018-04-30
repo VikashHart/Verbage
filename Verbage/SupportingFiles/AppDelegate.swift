@@ -21,34 +21,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Setup firebase
         FirebaseApp.configure()
         
-        let loginvc = LoginViewController()
+//        let loginvc = LoginViewController()
 //        let loginnavcon = UINavigationController(rootViewController: loginvc)
 //        loginvc.tabBarItem = UITabBarItem(title: "login", image: #imageLiteral(resourceName: "feed"), tag: 0)
         
-//        //Feed View Controller
-//        let feedViewController = FeedViewController()
-//        let feedViewNavCon = UINavigationController(rootViewController: feedViewController)
-//        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "feed"), tag: 0)
-//
-//        //New Post View Controller
-//        let newPostViewController = NewPostViewController()
-//        let newPostNavCon = UINavigationController(rootViewController: newPostViewController)
-//        newPostViewController.tabBarItem = UITabBarItem(title: "New Post", image: #imageLiteral(resourceName: "add"), tag: 1)
-//
-//        //Profile View Controller
-//        let profileViewController = ProfileViewController()
+        //Feed View Controller
+        let feedViewController = FeedViewController()
+        let feedViewNavCon = UINavigationController(rootViewController: feedViewController)
+        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "feed"), tag: 0)
+
+        //New Post View Controller
+        let newPostViewController = NewPostViewController()
+        let newPostNavCon = UINavigationController(rootViewController: newPostViewController)
+        newPostViewController.tabBarItem = UITabBarItem(title: "New Post", image: #imageLiteral(resourceName: "add"), tag: 1)
+
+        //Profile View Controller
+        let profileViewController = ProfileViewController()
 //        let profileViewNavCon = UINavigationController(rootViewController: profileViewController)
-//        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "profile"), tag: 2)
+        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "profile"), tag: 2)
         
         //Tab Bar Controller
-//        let tabBarController = UITabBarController()
-//        tabBarController.viewControllers = [loginnavcon]
-
-//        tabBarController.viewControllers = [feedViewNavCon, newPostNavCon, profileViewNavCon]
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = UIColor.white
+        tabBarController.viewControllers = [feedViewNavCon, newPostNavCon, profileViewController]
         
         //Window setup
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = loginvc //tabBarController
+        window?.rootViewController = tabBarController //loginvc
         window?.makeKeyAndVisible()
         return true
     }

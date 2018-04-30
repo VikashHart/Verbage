@@ -11,6 +11,15 @@
 		815928C8208D4C5900689B86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815928C7208D4C5900689B86 /* LoginViewController.swift */; };
 		815928CA208D5D7D00689B86 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815928C9208D5D7D00689B86 /* UIColor+Hex.swift */; };
 		817B601F2093CD36003CAF5F /* FireBaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B601E2093CD36003CAF5F /* FireBaseAuthService.swift */; };
+		817B602120942DC8003CAF5F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602020942DC8003CAF5F /* FeedViewController.swift */; };
+		817B602320942DE5003CAF5F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602220942DE5003CAF5F /* NewPostViewController.swift */; };
+		817B602520942DF8003CAF5F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602420942DF8003CAF5F /* ProfileViewController.swift */; };
+		817B602720942E0E003CAF5F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602620942E0E003CAF5F /* FeedView.swift */; };
+		817B602920942E23003CAF5F /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602820942E23003CAF5F /* NewPostView.swift */; };
+		817B602B20942E49003CAF5F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602A20942E49003CAF5F /* ProfileView.swift */; };
+		817B602D20942E70003CAF5F /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602C20942E70003CAF5F /* CommentsViewController.swift */; };
+		817B602F20942E82003CAF5F /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B602E20942E82003CAF5F /* CommentsView.swift */; };
+		817B603120953295003CAF5F /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B603020953295003CAF5F /* PostCell.swift */; };
 		81FC472E2088F9FC00A98EE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC472D2088F9FC00A98EE4 /* AppDelegate.swift */; };
 		81FC47332088F9FC00A98EE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC47312088F9FC00A98EE4 /* Main.storyboard */; };
 		81FC47352088F9FC00A98EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FC47342088F9FC00A98EE4 /* Assets.xcassets */; };
@@ -25,6 +34,15 @@
 		815928C7208D4C5900689B86 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815928C9208D5D7D00689B86 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		817B601E2093CD36003CAF5F /* FireBaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthService.swift; sourceTree = "<group>"; };
+		817B602020942DC8003CAF5F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		817B602220942DE5003CAF5F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		817B602420942DF8003CAF5F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		817B602620942E0E003CAF5F /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		817B602820942E23003CAF5F /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		817B602A20942E49003CAF5F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		817B602C20942E70003CAF5F /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		817B602E20942E82003CAF5F /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		817B603020953295003CAF5F /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		81FC472A2088F9FC00A98EE4 /* Verbage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verbage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FC472D2088F9FC00A98EE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81FC47322088F9FC00A98EE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,11 +66,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8104A6C720939A470020FC36 /* Cells */ = {
+		8104A6C720939A470020FC36 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				817B603020953295003CAF5F /* PostCell.swift */,
 			);
-			path = Cells;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		81FC47212088F9FC00A98EE4 = {
@@ -78,7 +97,7 @@
 			children = (
 				81FC47452088FAF900A98EE4 /* Services */,
 				81FC47412088FA6B00A98EE4 /* Models */,
-				8104A6C720939A470020FC36 /* Cells */,
+				8104A6C720939A470020FC36 /* CustomCells */,
 				81FC47422088FA7600A98EE4 /* Views */,
 				81FC47432088FA7F00A98EE4 /* ViewControllers */,
 				81FC47482089550700A98EE4 /* SupportingFiles */,
@@ -98,6 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				81FC474620893D0900A98EE4 /* LoginView.swift */,
+				817B602620942E0E003CAF5F /* FeedView.swift */,
+				817B602820942E23003CAF5F /* NewPostView.swift */,
+				817B602A20942E49003CAF5F /* ProfileView.swift */,
+				817B602E20942E82003CAF5F /* CommentsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				815928C7208D4C5900689B86 /* LoginViewController.swift */,
+				817B602020942DC8003CAF5F /* FeedViewController.swift */,
+				817B602220942DE5003CAF5F /* NewPostViewController.swift */,
+				817B602420942DF8003CAF5F /* ProfileViewController.swift */,
+				817B602C20942E70003CAF5F /* CommentsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,10 +318,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				815928C8208D4C5900689B86 /* LoginViewController.swift in Sources */,
+				817B602720942E0E003CAF5F /* FeedView.swift in Sources */,
 				815928CA208D5D7D00689B86 /* UIColor+Hex.swift in Sources */,
 				81FC474720893D0900A98EE4 /* LoginView.swift in Sources */,
+				817B602320942DE5003CAF5F /* NewPostViewController.swift in Sources */,
 				817B601F2093CD36003CAF5F /* FireBaseAuthService.swift in Sources */,
+				817B602120942DC8003CAF5F /* FeedViewController.swift in Sources */,
+				817B603120953295003CAF5F /* PostCell.swift in Sources */,
+				817B602520942DF8003CAF5F /* ProfileViewController.swift in Sources */,
+				817B602D20942E70003CAF5F /* CommentsViewController.swift in Sources */,
 				81FC472E2088F9FC00A98EE4 /* AppDelegate.swift in Sources */,
+				817B602F20942E82003CAF5F /* CommentsView.swift in Sources */,
+				817B602B20942E49003CAF5F /* ProfileView.swift in Sources */,
+				817B602920942E23003CAF5F /* NewPostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
