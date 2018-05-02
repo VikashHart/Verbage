@@ -63,7 +63,29 @@ class CustomView: UIView {
         return view
     }()
     
+    lazy var commentTextView: UITextView = {
+        let tv = UITextView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
     
+    lazy var postButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "post").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .black
+        button.layer.opacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var recordButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "microphone off").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .black
+        button.layer.opacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -84,6 +106,11 @@ class CustomView: UIView {
         setupHeaderBackground()
         setupHeaderView()
         setupHeaderLabel()
+        setupTableView()
+        setupNewCommentView()
+        setupCommentTextView()
+        setupPostButton()
+        setupRecordButton()
         
     }
     
@@ -128,5 +155,55 @@ class CustomView: UIView {
             ])
     }
     
+    private func setupTableView() {
+        addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            tableView.widthAnchor.constraint(equalTo: widthAnchor),
+            tableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
+            tableView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            ])
+    }
+    
+    private func setupNewCommentView() {
+        addSubview(newCommentView)
+        NSLayoutConstraint.activate([
+            newCommentView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            newCommentView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
+            newCommentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            newCommentView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            ])
+    }
+    
+    private func setupCommentTextView() {
+        newCommentView.addSubview(commentTextView)
+        NSLayoutConstraint.activate([
+            commentTextView.topAnchor.constraint(equalTo: newCommentView.topAnchor),
+            commentTextView.leadingAnchor.constraint(equalTo: newCommentView.leadingAnchor),
+            commentTextView.widthAnchor.constraint(equalTo: newCommentView.widthAnchor, multiplier: 0.85),
+            commentTextView.bottomAnchor.constraint(equalTo: newCommentView.bottomAnchor)
+            ])
+    }
+    
+    private func setupPostButton() {
+        newCommentView.addSubview(postButton)
+        NSLayoutConstraint.activate([
+            postButton.topAnchor.constraint(equalTo: newCommentView.topAnchor),
+            postButton.leadingAnchor.constraint(equalTo: commentTextView.trailingAnchor),
+            postButton.trailingAnchor.constraint(equalTo: newCommentView.trailingAnchor),
+            postButton.heightAnchor.constraint(equalTo: newCommentView.heightAnchor, multiplier: 0.5)
+            ])
+    }
+    
+    private func setupRecordButton() {
+        newCommentView.addSubview(recordButton)
+        NSLayoutConstraint.activate([
+            recordButton.topAnchor.constraint(equalTo: postButton.bottomAnchor),
+            recordButton.leadingAnchor.constraint(equalTo: commentTextView.trailingAnchor),
+            recordButton.trailingAnchor.constraint(equalTo: newCommentView.trailingAnchor),
+            recordButton.heightAnchor.constraint(equalTo: newCommentView.heightAnchor, multiplier: 0.5),
+            recordButton.bottomAnchor.constraint(equalTo: newCommentView.bottomAnchor)
+            ])
+    }
 }
 
