@@ -19,6 +19,7 @@ class ProfileView: UIView {
         header.image = #imageLiteral(resourceName: "Midnight Bloom")
         header.contentMode = .scaleAspectFill
         header.clipsToBounds = true
+        header.translatesAutoresizingMaskIntoConstraints = false
         return header
     }()
     
@@ -26,6 +27,7 @@ class ProfileView: UIView {
         let header = UIView()
         header.layer.opacity = 0.05
         header.backgroundColor = .white
+        header.translatesAutoresizingMaskIntoConstraints = false
         return header
     }()
     
@@ -35,26 +37,32 @@ class ProfileView: UIView {
         label.font = UIFont(name: "Zapfino", size: 18)
         label.textAlignment = .center
         label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var sideMenuButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "side menu open"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "side menu open").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         button.layer.opacity = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var editButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "menu"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
         button.layer.opacity = 1
         button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var profileContainer: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -63,6 +71,7 @@ class ProfileView: UIView {
         photo.image = #imageLiteral(resourceName: "vikash")
         photo.contentMode = .scaleAspectFill
         photo.layer.masksToBounds = true
+        photo.translatesAutoresizingMaskIntoConstraints = false
         return photo
     }()
     
@@ -71,6 +80,7 @@ class ProfileView: UIView {
         photo.image = #imageLiteral(resourceName: "Midnight Bloom")
         photo.layer.opacity = 0.65
         photo.contentMode = .scaleAspectFill
+        photo.translatesAutoresizingMaskIntoConstraints = false
         return photo
     }()
     
@@ -90,6 +100,7 @@ class ProfileView: UIView {
         label.backgroundColor = .clear
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -101,6 +112,7 @@ class ProfileView: UIView {
         sc.selectedSegmentIndex = 0
         sc.backgroundColor = newPurple
         sc.tintColor = .white
+        sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
     }()
     
@@ -110,6 +122,7 @@ class ProfileView: UIView {
         let tableView = UITableView()
         tableView.register(PostCell.self, forCellReuseIdentifier: postCell)
         tableView.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -124,7 +137,7 @@ class ProfileView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .black
+        backgroundColor = .white
         setupViews()
     }
     
@@ -145,7 +158,6 @@ class ProfileView: UIView {
     
     private func setupHeaderBackground() {
         addSubview(headerBackground)
-        headerBackground.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             headerBackground.topAnchor.constraint(equalTo: topAnchor),
             headerBackground.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
@@ -157,7 +169,6 @@ class ProfileView: UIView {
     
     private func setupHeaderView() {
         addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: headerBackground.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: headerBackground.leadingAnchor),
@@ -169,7 +180,6 @@ class ProfileView: UIView {
     
     private func setupHeaderLabel() {
         addSubview(headerLabel)
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             headerLabel.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.6),
             headerLabel.centerXAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerXAnchor),
@@ -179,7 +189,6 @@ class ProfileView: UIView {
     
     private func setupSideMenuButton() {
         addSubview(sideMenuButton)
-        sideMenuButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             sideMenuButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10),
             sideMenuButton.centerYAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerYAnchor),
@@ -190,7 +199,6 @@ class ProfileView: UIView {
     
     private func setupEditButton() {
         addSubview(editButton)
-        editButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             editButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10),
             editButton.centerYAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerYAnchor),
@@ -201,7 +209,6 @@ class ProfileView: UIView {
     
     private func setupProfileContainer() {
         addSubview(profileContainer)
-        profileContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileContainer.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             profileContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
@@ -212,7 +219,6 @@ class ProfileView: UIView {
     
     private func setupProfilePhoto() {
         addSubview(profilePhoto)
-        profilePhoto.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profilePhoto.topAnchor.constraint(equalTo: profileContainer.topAnchor),
             profilePhoto.leadingAnchor.constraint(equalTo: profileContainer.leadingAnchor),
@@ -224,7 +230,6 @@ class ProfileView: UIView {
 
     private func setupProfileGradientLayer() {
         addSubview(profileGradientLayer)
-        profileGradientLayer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileGradientLayer.topAnchor.constraint(equalTo: profilePhoto.topAnchor),
             profileGradientLayer.leadingAnchor.constraint(equalTo: profilePhoto.leadingAnchor),
@@ -236,7 +241,6 @@ class ProfileView: UIView {
     
     private func setupUsernameLabel() {
         addSubview(usernameLabel)
-        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
 //            usernameLabel.leadingAnchor.constraint(equalTo: profileGradientLayer.leadingAnchor, constant: 10),
 //            usernameLabel.trailingAnchor.constraint(equalTo: profileGradientLayer.trailingAnchor, constant: -10),
@@ -259,7 +263,6 @@ class ProfileView: UIView {
     
     private func setupSegmentedController() {
         addSubview(segmentedController)
-        segmentedController.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             segmentedController.topAnchor.constraint(equalTo: profileContainer.bottomAnchor),
             segmentedController.widthAnchor.constraint(equalTo: widthAnchor),
@@ -269,7 +272,6 @@ class ProfileView: UIView {
 
     private func setupTableView() {
         addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: segmentedController.bottomAnchor),
             tableView.widthAnchor.constraint(equalTo: widthAnchor),

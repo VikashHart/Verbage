@@ -15,6 +15,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(profileView)
+        configureNavBar()
+        
+    }
+    
+    private func configureNavBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navbar-gradient"), for: .default)
         
     }
 

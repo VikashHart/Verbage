@@ -15,6 +15,7 @@ class LoginView: UIView {
         let sv = UIScrollView()
         sv.backgroundColor = .clear
         sv.delaysContentTouches = false
+        sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
     
@@ -22,6 +23,7 @@ class LoginView: UIView {
         let view = UIView()
         view.backgroundColor = .clear
         view.isUserInteractionEnabled = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -31,6 +33,7 @@ class LoginView: UIView {
         label.font = UIFont(name: "Zapfino", size: 60)
         label.textAlignment = .center
         label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -53,6 +56,7 @@ class LoginView: UIView {
         let leftView = UIImageView()
         leftView.image = #imageLiteral(resourceName: "email")
         email.leftView = leftView
+        email.translatesAutoresizingMaskIntoConstraints = false
         return email
     }()
     
@@ -77,6 +81,7 @@ class LoginView: UIView {
         let leftView = UIImageView()
         leftView.image = #imageLiteral(resourceName: "password")
         pass.leftView = leftView
+        pass.translatesAutoresizingMaskIntoConstraints = false
         return pass
     }()
     
@@ -86,6 +91,7 @@ class LoginView: UIView {
         button.setTitleColor(.red, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -98,6 +104,7 @@ class LoginView: UIView {
         button.layer.cornerRadius = 8
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -110,6 +117,7 @@ class LoginView: UIView {
         button.layer.cornerRadius = 8
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -141,7 +149,6 @@ class LoginView: UIView {
     
     private func setupScrollView() {
         addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             scrollView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
@@ -152,7 +159,6 @@ class LoginView: UIView {
     
     private func setupContainerView() {
         scrollView.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
@@ -164,7 +170,6 @@ class LoginView: UIView {
     
     private func setupIconLabel() {
         containerView.addSubview(iconLabel)
-        iconLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             iconLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             iconLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -176,7 +181,6 @@ class LoginView: UIView {
     
     private func setupEmail() {
         containerView.addSubview(emailTextField)
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: iconLabel.bottomAnchor),
             emailTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
@@ -186,7 +190,6 @@ class LoginView: UIView {
     
     private func setupPassword() {
         containerView.addSubview(passwordTextField)
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 45),
             passwordTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
@@ -196,7 +199,6 @@ class LoginView: UIView {
     
     private func setupForgotPasswordButton() {
         containerView.addSubview(forgotPasswordButton)
-        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
             forgotPasswordButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
@@ -206,7 +208,6 @@ class LoginView: UIView {
     
     private func setupLoginButton() {
         containerView.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 25),
             loginButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
@@ -216,7 +217,6 @@ class LoginView: UIView {
     
     private func setupSignUpButton() {
         containerView.addSubview(signUpButton)
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
             signUpButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
