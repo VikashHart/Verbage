@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-speech_bubble_with_dots.png",
+      "filename" : "icons8-topic.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-topic-1.png",
       "scale" : "2x"
     },
     {

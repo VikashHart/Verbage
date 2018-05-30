@@ -11,43 +11,77 @@ import Material
 
 class LoginView: UIView {
     
+    lazy var scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = .clear
+        sv.delaysContentTouches = false
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
     lazy var containerView: UIView = {
         let view = UIView()
+        view.backgroundColor = .clear
+        view.isUserInteractionEnabled = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
     lazy var iconLabel: UILabel = {
         let label = UILabel()
         label.text = "Verbage"
-        label.font = UIFont(name: "Zapfino", size: 30)
+        label.font = UIFont(name: "Zapfino", size: 60)
         label.textAlignment = .center
         label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var emailTextField: ErrorTextField = {
-        let email = ErrorTextField()
+    lazy var emailTextField: TextField = {
+        let email = TextField()
+        email.textColor = .white
+        email.font = email.font?.withSize(18)
         email.placeholder = "Email"
-        email.detail = "Error, invalid email"
         email.isClearIconButtonEnabled = true
-        email.isPlaceholderUppercasedWhenEditing = true
-        email.placeholderAnimation = .hidden
+        email.clearIconButton?.tintColor = .white
+        email.autocorrectionType = .no
+        email.returnKeyType = UIReturnKeyType.done
+        email.keyboardAppearance = .dark
+        email.keyboardType = .emailAddress
+        email.placeholderAnimation = .default
+        email.placeholderNormalColor = .white
+        email.placeholderActiveColor = .white
+        email.dividerNormalColor = .white
+        email.dividerActiveColor = .white
         let leftView = UIImageView()
         leftView.image = #imageLiteral(resourceName: "email")
         email.leftView = leftView
+        email.translatesAutoresizingMaskIntoConstraints = false
         return email
     }()
     
     lazy var passwordTextField: TextField = {
         let pass = TextField()
+        pass.textColor = .white
+        pass.font = pass.font?.withSize(18)
+        pass.detailLabel.font = pass.font?.withSize(13)
         pass.placeholder = "Password"
         pass.detail = "At least 6 characters"
+        pass.detailColor = .lightGray
         pass.clearButtonMode = .whileEditing
         pass.isVisibilityIconButtonEnabled = true
         pass.isSecureTextEntry = true
+        pass.returnKeyType = UIReturnKeyType.done
+        pass.keyboardAppearance = .dark
+        pass.visibilityIconButton?.tintColor = .white
+        pass.placeholderNormalColor = .white
+        pass.placeholderActiveColor = .white
+        pass.dividerNormalColor = .white
+        pass.dividerActiveColor = .white
         let leftView = UIImageView()
         leftView.image = #imageLiteral(resourceName: "password")
         pass.leftView = leftView
+        pass.translatesAutoresizingMaskIntoConstraints = false
         return pass
     }()
     
@@ -55,11 +89,9 @@ class LoginView: UIView {
         let button = UIButton()
         button.setTitle("Forgot Password", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.backgroundColor = .clear
-//        button.layer.cornerRadius = 8
-//        button.layer.borderColor = UIColor.white.cgColor
-//        button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -72,6 +104,7 @@ class LoginView: UIView {
         button.layer.cornerRadius = 8
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -84,6 +117,7 @@ class LoginView: UIView {
         button.layer.cornerRadius = 8
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -98,32 +132,96 @@ class LoginView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .white
+        backgroundColor = .clear
         setupViews()
     }
     
     private func setupViews() {
+        setupScrollView()
         setupContainerView()
+        setupIconLabel()
+        setupEmail()
+        setupPassword()
+        setupForgotPasswordButton()
+        setupLoginButton()
+        setupSignUpButton()
+    }
+    
+    private func setupScrollView() {
+        addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            ])
     }
     
     private func setupContainerView() {
-        addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(containerView)
         NSLayoutConstraint.activate([
-            containerView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
-            containerView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.7),
-            containerView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            containerView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
             ])
     }
     
     private func setupIconLabel() {
-        addSubview(iconLabel)
-        iconLabel.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(iconLabel)
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: containerView.topAnchor),
-            widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
-            centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            iconLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
+            iconLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            iconLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            iconLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
+            iconLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+    }
+    
+    private func setupEmail() {
+        containerView.addSubview(emailTextField)
+        NSLayoutConstraint.activate([
+            emailTextField.topAnchor.constraint(equalTo: iconLabel.bottomAnchor),
+            emailTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
+            emailTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+    }
+    
+    private func setupPassword() {
+        containerView.addSubview(passwordTextField)
+        NSLayoutConstraint.activate([
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 45),
+            passwordTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
+            passwordTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+    }
+    
+    private func setupForgotPasswordButton() {
+        containerView.addSubview(forgotPasswordButton)
+        NSLayoutConstraint.activate([
+            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
+            forgotPasswordButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
+            forgotPasswordButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+    }
+    
+    private func setupLoginButton() {
+        containerView.addSubview(loginButton)
+        NSLayoutConstraint.activate([
+            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 25),
+            loginButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
+            loginButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+    }
+    
+    private func setupSignUpButton() {
+        containerView.addSubview(signUpButton)
+        NSLayoutConstraint.activate([
+            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+            signUpButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9),
+            signUpButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            signUpButton.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -10)
             ])
     }
     
