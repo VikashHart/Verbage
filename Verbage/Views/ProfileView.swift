@@ -10,15 +10,17 @@ import UIKit
 
 class ProfileView: UIView {
     
-    let newPurple = HexStringToUIColor.convert(hex: "#555abe", alpha: 0.85)
+    let purple = UIColor(hexString: "4A446D")
     
-    let font = "AvenirNext-Regular"
+    private let whiteGradient = [HexStringToUIColor.convert(hex: "#E3FDF5", alpha: 1), HexStringToUIColor.convert(hex: "#FFE6FA", alpha: 1)]
     
-    lazy var headerBackground: UIImageView = {
-        let header = UIImageView()
-        header.image = #imageLiteral(resourceName: "Midnight Bloom")
-        header.contentMode = .scaleAspectFill
-        header.clipsToBounds = true
+    private let font = "AvenirNext-Regular"
+    
+    lazy var headerBackground: GradientView = {
+        let header = GradientView()
+        header.gradientLayer?.startPoint = CGPoint(x: 0, y: 0.5)
+        header.gradientLayer?.endPoint = CGPoint(x: 1, y: 0.5)
+        header.gradientLayer?.colors = CGColor.verbage
         header.translatesAutoresizingMaskIntoConstraints = false
         return header
     }()
@@ -75,13 +77,14 @@ class ProfileView: UIView {
         return photo
     }()
     
-    lazy var profileGradientLayer: UIImageView = {
-        let photo = UIImageView()
-        photo.image = #imageLiteral(resourceName: "Midnight Bloom")
-        photo.layer.opacity = 0.65
-        photo.contentMode = .scaleAspectFill
-        photo.translatesAutoresizingMaskIntoConstraints = false
-        return photo
+    lazy var profileGradientLayer: GradientView = {
+        let gradient = GradientView()
+        gradient.gradientLayer?.startPoint = CGPoint(x: 0, y: 0)
+        gradient.gradientLayer?.endPoint = CGPoint(x: 1, y: 1)
+        gradient.gradientLayer?.colors = CGColor.verbage
+        gradient.layer.opacity = 0.65
+        gradient.translatesAutoresizingMaskIntoConstraints = false
+        return gradient
     }()
     
 //    lazy var editProfileButton: UIButton = {
@@ -110,8 +113,7 @@ class ProfileView: UIView {
         sc.setTitleTextAttributes([NSAttributedStringKey.font: fontStyle],
                                         for: .normal)
         sc.selectedSegmentIndex = 0
-        sc.backgroundColor = newPurple
-        sc.tintColor = .white
+        sc.tintColor = purple
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
     }()

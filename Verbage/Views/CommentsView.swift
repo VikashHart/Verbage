@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CustomView: UIView {
+class CommentsView: UIView {
     
-    let font = "AvenirNext-Regular"
+    private let font = "AvenirNext-Regular"
     
     lazy var headerBackground: UIImageView = {
         let header = UIImageView()
@@ -74,6 +74,8 @@ class CustomView: UIView {
         button.setImage(#imageLiteral(resourceName: "post").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .black
         button.layer.opacity = 1
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -83,6 +85,8 @@ class CustomView: UIView {
         button.setImage(#imageLiteral(resourceName: "microphone off").withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .black
         button.layer.opacity = 1
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
